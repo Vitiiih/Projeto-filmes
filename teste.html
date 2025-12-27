@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Streamix</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- Fonte fofa -->
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+
+</head>
+
+<body style="
+  margin:0;
+  font-family:Arial, Helvetica, sans-serif;
+  background:#0f0f0f;
+  color:white;
+  padding-bottom:120px;
+">
+
+<!-- HEADER -->
+<header id="logo" style="
+  padding:20px;
+  font-size:26px;
+  font-weight:bold;
+  cursor:pointer;
+">
+  Streamix
+</header>
+
+<!-- HOME -->
+<section id="home" style="
+  display:grid;
+  grid-template-columns:repeat(auto-fill, minmax(180px, 1fr));
+  gap:25px;
+  padding:20px;
+">
+
+  <div onclick="abrirSerie('stranger')" style="cursor:pointer;text-align:center;">
+    <img src="https://preview.redd.it/1q7743gjlnpz.jpg?width=1080&crop=smart&auto=webp&s=2234d3f18584ccc7f8545165e48710d3d5211596"
+         style="width:100%;height:270px;object-fit:cover;border-radius:12px;">
+    <h4 style="margin-top:10px;font-size:14px;">Stranger Things</h4>
+  </div>
+
+  <div onclick="abrirSerie('jujutsu')" style="cursor:pointer;text-align:center;">
+    <img src="https://i.pinimg.com/564x/25/db/a5/25dba53ae14630b01af7f695f88abc37.jpg"
+         style="width:100%;height:270px;object-fit:cover;border-radius:12px;">
+    <h4 style="margin-top:10px;font-size:14px;">Jujutsu Kaisen</h4>
+  </div>
+
+</section>
+
+<!-- STRANGER -->
+<section id="stranger" style="display:none;padding:20px;">
+  <div onclick="voltar()" style="cursor:pointer;color:#aaa;margin-bottom:20px;">
+    ← Voltar
+  </div>
+</section>
+
+<!-- JUJUTSU -->
+<section id="jujutsu" style="display:none;padding:20px;">
+  <div onclick="voltar()" style="cursor:pointer;color:#aaa;margin-bottom:20px;">
+    ← Voltar
+  </div>
+</section>
+
+<!-- ANÚNCIO -->
+<div style="
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:90px;
+  background:#111;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  z-index:9999;
+">
+  <button onclick="abrirAnuncio()" style="
+    background:#e50914;
+    border:none;
+    color:white;
+    padding:14px 24px;
+    font-size:16px;
+    border-radius:6px;
+    cursor:pointer;
+  ">
+    🔔 Clique aqui para apoiar o site
+  </button>
+</div>
+
+<!-- EASTER EGG (BEM VISÍVEL) -->
+<div id="egg" style="
+  display:none;
+  position:fixed;
+  bottom:120px;
+  right:20px;
+  background:rgba(0,0,0,0.85);
+  padding:16px 22px;
+  border-radius:12px;
+  font-family:'Pacifico', cursive;
+  font-size:28px;
+  color:#ff4fd8;
+  z-index:10000;
+">
+  giihzoca ❤️✨
+</div>
+
+<!-- SCRIPT -->
+<script>
+function abrirSerie(id) {
+  document.getElementById("home").style.display = "none";
+  document.getElementById("stranger").style.display = "none";
+  document.getElementById("jujutsu").style.display = "none";
+  document.getElementById(id).style.display = "block";
+}
+
+function voltar() {
+  document.getElementById("stranger").style.display = "none";
+  document.getElementById("jujutsu").style.display = "none";
+  document.getElementById("home").style.display = "grid";
+}
+
+function abrirAnuncio() {
+  window.open(
+    "https://www.effectivegatecpm.com/xs8v78xt?key=9df63df96261b5b715efb2efa7016459",
+    "_blank"
+  );
+}
+
+/* EASTER EGG */
+document.getElementById("logo").addEventListener("click", function () {
+  var egg = document.getElementById("egg");
+  egg.style.display = "block";
+
+  setTimeout(function () {
+    egg.style.display = "none";
+  }, 5000); // 5000ms = 5 segundos
+});
+
+</script>
+
+</body>
+</html>

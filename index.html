@@ -1,0 +1,184 @@
+<html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Minha Plataforma</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #0f0f0f;
+  color: #fff;
+}
+
+header {
+  padding: 20px;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+/* HOME */
+.catalogo {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 25px;
+  padding: 20px;
+}
+
+/* CARD */
+.card {
+  cursor: pointer;
+  transition: transform 0.3s;
+  text-align: center;
+}
+
+.card:hover {
+  transform: scale(1.07);
+}
+
+/* THUMBS */
+.card img {
+  width: 100%;
+  height: 270px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.card h4 {
+  margin-top: 10px;
+  font-size: 14px;
+}
+
+/* SÉRIE */
+.serie {
+  display: none;
+  padding: 20px;
+}
+
+.btn-voltar {
+  cursor: pointer;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.btn-voltar:hover {
+  color: #fff;
+}
+
+.serie-header {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.serie-header img {
+  width: 220px;
+  height: 330px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+/* EPISÓDIOS */
+.episodios {
+  margin-top: 30px;
+}
+
+.episodio {
+  padding: 12px;
+  border-bottom: 1px solid #333;
+  cursor: pointer;
+}
+
+.episodio:hover {
+  background: #1a1a1a;
+}
+</style>
+</head>
+
+<body>
+
+<header>Minha Plataforma</header>
+
+<!-- HOME -->
+<section id="home" class="catalogo">
+
+  <div class="card" onclick="abrirSerie('stranger')">
+    <img src="https://preview.redd.it/1q7743gjlnpz.jpg?width=1080&crop=smart&auto=webp&s=2234d3f18584ccc7f8545165e48710d3d5211596">
+    <h4>Stranger Things</h4>
+  </div>
+
+  <div class="card" onclick="abrirSerie('jujutsu')">
+    <img src="https://i.pinimg.com/564x/25/db/a5/25dba53ae14630b01af7f695f88abc37.jpg">
+    <h4>Jujutsu Kaisen</h4>
+  </div>
+
+</section>
+
+<!-- STRANGER -->
+<section id="stranger" class="serie">
+  <div class="btn-voltar" onclick="voltar()">← Voltar</div>
+
+  <div class="serie-header">
+    <img src="https://preview.redd.it/1q7743gjlnpz.jpg?width=1080&crop=smart&auto=webp&s=2234d3f18584ccc7f8545165e48710d3d5211596">
+    <div>
+      <h2>Stranger Things</h2>
+      <p>Descrição exemplo.</p>
+    </div>
+  </div>
+
+  <div class="episodios">
+    <h3>Episódios</h3>
+    <div class="episodio">Episódio 01</div>
+    <div class="episodio">Episódio 02</div>
+  </div>
+</section>
+
+<!-- JUJUTSU -->
+<section id="jujutsu" class="serie">
+  <div class="btn-voltar" onclick="voltar()">← Voltar</div>
+
+  <div class="serie-header">
+    <img src="https://i.pinimg.com/564x/25/db/a5/25dba53ae14630b01af7f695f88abc37.jpg">
+    <div>
+      <h2>Jujutsu Kaisen</h2>
+      <p>Yuji Itadori engole o dedo de Sukuna.</p>
+    </div>
+  </div>
+
+  <div class="episodios">
+    <h3>Episódios</h3>
+
+    <!-- EPISÓDIO COM LINK -->
+    <div class="episodio" onclick="abrirEpisodio('https://iframe.mediadelivery.net/play/570948/29e620ba-c04e-4a11-bf1d-fba34c00d134')">
+      E1 - Ryomen Sukuna
+    </div>
+
+    <div class="episodio">
+      E2 - Por mim mesmo
+    </div>
+
+  </div>
+</section>
+
+<script>
+function abrirSerie(id) {
+  document.getElementById("home").style.display = "none";
+  document.querySelectorAll(".serie").forEach(s => s.style.display = "none");
+  document.getElementById(id).style.display = "block";
+}
+
+function voltar() {
+  document.querySelectorAll(".serie").forEach(s => s.style.display = "none");
+  document.getElementById("home").style.display = "grid";
+}
+
+function abrirEpisodio(url) {
+  window.open(url, "_blank");
+}
+</script>
+
+</body>
+</html>
